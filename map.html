@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hiển thị bản đồ</title>
+  <script src="https://gisapi.tphcm.gov.vn/developers/Scripts/HCMMapsAPI2.js?key=a0cbccef-9a77-4360-b324-3cbf14d5b6aa"></script>
+  <script>
+
+  function initMap(){
+        var mapContainer = document.getElementById("divMap");
+            //hcmmap.pathImgMap = 'http://images.hcmmap.com/mapimagesws/mapimageservice.ashx?Action=GetTiles';
+            var mapProp = {
+                center: new hcmmap.LatLng(10.824201334262185, 106.6732120513916),
+                zoom: 13,
+            };
+            var map = new hcmmap.Map(mapContainer, mapProp);
+            var position = new hcmmap.LatLng(10.7685194,106.7465384); /*vị trí của marker trên map*/
+           // var position = map.getCenter();
+            var marker = new hcmmap.Marker({
+                position: position
+            });
+            marker.setMap(map);
+  }
+
+  </script>
+</head>
+<body onload="initMap()">
+  <div id="divMap" style="height: 1024px; width: 100%;"></div>
+</body>
+</html>
